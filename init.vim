@@ -11,3 +11,6 @@ set autoindent
 set number
 syntax on
 set mouse=a
+
+lua require('user/plugins')
+colorscheme dracula
