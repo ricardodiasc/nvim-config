@@ -14,3 +14,5 @@ set mouse=a
 
 lua require('user/plugins')
 colorscheme dracula
+set noswapfile
+set backupdir=~/.cache/vim
