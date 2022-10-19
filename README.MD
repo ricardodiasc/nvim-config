@@ -19,3 +19,24 @@ Link on how to config nerdy fonts...
 - Java development
 - Javascript (angualar) development
 - Check lazygit -  https://www.youtube.com/watch?v=hwC4JduRHyg
+
+## LSP
+
+- Install lua-language-server
+
+```shell
+sudo apt install gcc g++ clang ninja-build
+
+mkdir -p .config/lsp
+cd ~/.config/lsp
+git clone --depth=1 https://hub.fastgit.xyz/sumneko/lua-language-server
+cd lua-language-server
+git submodule update --init --recursive
+cd 3rd/luamake
+compile/install.sh
+cd ../..
+./3rd/luamake/luamake rebuild
+
+```
+
+
