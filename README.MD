@@ -39,4 +39,25 @@ cd ../..
 
 ```
 
+tree-sitter
+
+The instalation of tree-sitter can be made by npm, source code from repository or package install.
+
+from npm is :
+
+```shell
+npm install -g tree-sitter
+```
+
+typescript language server is needed to complete the code completion
+
+```shell
+npm install -g typescript-language-server
+```
+
+To install lua-language-server inside macos, just execute:
+
+```shell
+brew install lua-language-server
+```
 

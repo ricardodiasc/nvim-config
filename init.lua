@@ -43,5 +43,6 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 
 vim.opt.formatoptions:append { 'r' }
 
+require('user/highlights')
 require('user/keymap')
 require('user/plugins')
