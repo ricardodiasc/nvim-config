@@ -1,7 +1,7 @@
-local status, n = pcall(require, 'neosolarized')
+local status, n = pcall(require, "neosolarized")
 
 if (not status) then
-  print("neosolarized not installed")
+  print("Neosolarized not installed:")
   return
 end
 
@@ -9,7 +9,7 @@ n.setup({
   comment_italics = true,
 })
 
-local cb = require("colorbuddy.init")
+local cb = require('colorbuddy.init')
 local Color = cb.Color
 local colors = cb.colors
 local Group = cb.Group
@@ -26,12 +26,11 @@ local cInfo = groups.Information.fg
 local cWarn = groups.Warning.fg
 local cHint = groups.Hint.fg
 
-Group.new('DiagnosticVirtualTextError', cError, cError:dark():dark():dark():dark(), styles.NONE)
-Group.new('DiagnosticVirtualTextInfo', cInfo, cInfo:dark():dark():dark(), styles.NONE)
-Group.new('DiagnosticVirtualTextWarn', cWarn, cWarn:dark():dark():dark(), styles.NONE)
-Group.new('DiagnosticVirtualTextHint', cHint, cHint:dark():dark():dark(), styles.NONE)
-
-Group.new('DiagnosticUnderlineError', colors.none, colors.none, styles.undercurl, cError)
-Group.new('DiagnosticunderlineWarn', colors.none, colors.none, styles.undercurl, cWarn)
-Group.new('DiagnosticUnderlineInfo', colors.none, colors.none, styles.undercurl, cInfo)
-Group.new('DiagnosticUnderklineHint', colors.none, colors.none, styles.undercurl, cHint)
+Group.new("DiagnosticVirtualTextError", cError, cError:dark():dark():dark():dark(), styles.NONE)
+Group.new("DiagnosticVirtualTextInfo", cInfo, cInfo:dark():dark():dark(), styles.NONE)
+Group.new("DiagnosticVirtualTextWarn", cWarn, cWarn:dark():dark():dark(), styles.NONE)
+Group.new("DiagnosticVirtualTextHint", cHint, cHint:dark():dark():dark(), styles.NONE)
+Group.new("DiagnosticUnderlineError", colors.none, colors.none, styles.undercurl, cError)
+Group.new("DiagnosticUnderlineWarn", colors.none, colors.none, styles.undercurl, cWarn)
+Group.new("DiagnosticUnderlineInfo", colors.none, colors.none, styles.undercurl, cInfo)
+Group.new("DiagnosticUnderlineHint", colors.none, colors.none, styles.undercurl, cHint)

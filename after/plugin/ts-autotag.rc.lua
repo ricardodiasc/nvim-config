@@ -6,4 +6,4 @@ if (not status) then
 end
 
 
-autotag.setup {}
+autotag.setup({})

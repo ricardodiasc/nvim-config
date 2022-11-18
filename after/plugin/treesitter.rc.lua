@@ -6,7 +6,7 @@ if (not status) then
 end
 
 ts.setup({
-  hightlight = {
+  highlight = {
     enable = true,
     disable = {},
   },
