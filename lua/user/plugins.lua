@@ -1,13 +1,15 @@
-local status, packer = pcall(require, "packer")
+--local status, packer = pcall(require, "packer.nvim")
 
-if (not status) then
-  print("Packer is not installed")
-  return
-end
+-- if (not status) then
+--  print("Packer is not installed")
+--  vim.cmd [[ packadd packer.nvim ]]
+--  return
+-- end
 
-vim.cmd [[ packadd packer.nvim ]]
+-- vim.cmd [[ packadd packer.nvim ]]
+-- vim._update_package_paths()
 
-packer.startup(function(use)
+return require('packer').startup(function(use)
   use { 'wbthomason/packer.nvim' }
   use { 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons' } --Statusline
   use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' } -- Fuzy finder
@@ -24,4 +26,11 @@ packer.startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
   use 'akinsho/nvim-bufferline.lua'
+  use 'glepnir/lspsaga.nvim'
+
+  use 'williamboman/mason-lspconfig.nvim'
+  use 'williamboman/mason.nvim'
+  use 'jose-elias-alvarez/null-ls.nvim' -- Use neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+  use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's build-in LSP client
+  use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
 end)

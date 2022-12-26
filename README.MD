@@ -23,6 +23,9 @@ Link on how to config nerdy fonts...
 ## LSP
 
 - Install lua-language-server
+- Install typescript-language-server
+- Install @fsouza/prettierd -- Prettier code formatter daemon
+
 
 ```shell
 sudo apt install gcc g++ clang ninja-build
@@ -61,3 +64,10 @@ To install lua-language-server inside macos, just execute:
 brew install lua-language-server
 ```
 
+
+
+Install prettierd
+
+```shell
+npm install -g @fsouza/prettierd
+``` 
