@@ -2,6 +2,7 @@ local status, null_ls = pcall(require, 'null-ls')
 
 if (not status) then
   print("null-ls not installed")
+  return
 end
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

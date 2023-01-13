@@ -2,6 +2,7 @@ local status, prettier = pcall(require, "prettier")
 
 if (not status) then
   print("prettierd not found")
+  return
 end
 
 prettier.setup({

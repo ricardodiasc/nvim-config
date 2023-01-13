@@ -32,5 +32,5 @@ return require('packer').startup(function(use)
   use 'williamboman/mason.nvim'
   use 'jose-elias-alvarez/null-ls.nvim' -- Use neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's build-in LSP client
-  use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use 'mfussenegger/nvim-dap' --Nvim debugger adapter
 end)

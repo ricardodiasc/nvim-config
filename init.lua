@@ -43,6 +43,9 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 
 vim.opt.formatoptions:append { 'r' }
 
+
+-- vim.api.nvim_set_keymap('n', '<Leader><Tab>', print("test"), {})
+
 require('user/highlights')
 require('user/keymap')
 require('user/plugins')
