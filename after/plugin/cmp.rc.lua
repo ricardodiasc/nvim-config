@@ -7,6 +7,7 @@ end
 
 local lspkind = require 'lspkind'
 
+-- cmp stands for "code Completion"
 cmp.setup({
   snippet = {
     expand = function(args)
