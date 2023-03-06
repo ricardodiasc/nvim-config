@@ -70,4 +70,8 @@ Install prettierd
 
 ```shell
 npm install -g @fsouza/prettierd
-``` 
+```
+
+
+Java jdtls reference docs: https://www.youtube.com/watch?v=WelEHE3RwtY&t=2s
+
