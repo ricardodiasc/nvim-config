@@ -35,4 +35,5 @@ return require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   use 'simrat39/rust-tools.nvim'
   use 'mfussenegger/nvim-jdtls'
+  use 'voldikss/vim-floaterm'
 end)

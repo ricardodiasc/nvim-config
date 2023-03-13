@@ -1,3 +1,5 @@
+vim.g.mapleader = ' '
+
 vim.cmd("autocmd!")
 
 vim.scriptencoding = 'utf-8'
@@ -49,3 +51,27 @@ vim.opt.formatoptions:append { 'r' }
 require('user/highlights')
 require('user/keymap')
 require('user/plugins')
+
+
+-- Clipboard
+local has = function(x)
+  return vim.fn.has(x) == 1
+end
+
+local is_mac = has "macunix"
+local is_win = has "win32"
+local is_linux = has "linux"
+
+if is_mac then
+  -- macos
+  print("macos")
+  vim.opt.clipboard:append { "unnamedplus"}
+end
+if is_win then
+  -- windos
+  vim.opt.clipboard:prepend { 'unnamed', 'unnamedplus'}
+  print("windows")
+end
+if is_linux then
+  print("LINUXXXX")
+end
