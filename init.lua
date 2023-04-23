@@ -63,15 +63,11 @@ local is_win = has "win32"
 local is_linux = has "linux"
 
 if is_mac then
-  -- macos
-  print("macos")
-  vim.opt.clipboard:append { "unnamedplus"}
+  vim.opt.clipboard:append { "unnamedplus" }
 end
 if is_win then
-  -- windos
-  vim.opt.clipboard:prepend { 'unnamed', 'unnamedplus'}
-  print("windows")
+  vim.opt.clipboard:prepend { 'unnamed', 'unnamedplus' }
 end
 if is_linux then
-  print("LINUXXXX")
+  vim.opt.clipboard:append { "unnamedplus" }
 end
