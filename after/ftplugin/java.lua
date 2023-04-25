@@ -18,7 +18,6 @@ local WORKSPACE_PATH = HOME .. "/workspace/java"
 
 
 -- Only for Linux and Mac
-
 local SYSTEM = "linux"
 if vim.fn.has "mac" == 1 then
   SYSTEM = "mac"
@@ -63,7 +62,7 @@ local config = {
     "-data",
     workspace_dir,
   },
-  -- capabilities = require("lspconfig").capabilities,
+
   root_dir = root_dir,
 
   settings = {
@@ -73,6 +72,24 @@ local config = {
       },
       configuration = {
         updateBuildConfiguration = "interactive",
+        runtimes = {
+          {
+            name = "JavaJDK-11",
+            path =  HOME .. "/.sdkman/candidates/java/11.0.19-tem",
+          },
+          {
+            name = "JavaJDK-17",
+            path = HOME .. "/.sdkman/candidates/java/17.0.7-tem",
+          },
+          {
+            name = "JavaJDK-19",
+            path = HOME .. "/.sdkman/candidates/java/19-tem",
+          },
+          {
+            name = "JavaJDK-20",
+            path = HOME .. "/.sdkman/candidates/java/20-tem",
+          }
+        }
       },
       maven = {
         downloadSources = true,
@@ -87,7 +104,10 @@ local config = {
         includeDecompiledSources = true,
       },
       format = {
-        enabled = true,
+        settings = {
+          url = "/home/ricardo/.local/share/eclipse/eclipse-java-google-style.xml",
+          profile = "GoogleStyle",
+        },
       },
     },
   },
@@ -130,7 +150,7 @@ local config = {
 
 jdtls.start_or_attach(config)
 
-require("jdtls.setup").add_commands()
+-- require("jdtls.setup").add_commands()
 
-vim.bo.shiftwidth = 2
-vim.bo.tabstop = 2
+vim.bo.shiftwidth = 4
+vim.bo.tabstop = 4

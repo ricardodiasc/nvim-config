@@ -19,10 +19,6 @@ end
 null_ls.setup {
   sources = {
     null_ls.builtins.formatting.prettierd,
-    null_ls.builtins.diagnostics.eslint_d.with({
-      diagnistics_format = '[eslint] #{m}\n(#{c})'
-    }),
-    null_ls.builtins.diagnostics.fish
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
