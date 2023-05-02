@@ -25,6 +25,4 @@ keymap.set('n', '<Leader>jc', ':lua require("jdtls").compile("incremental")')
 
 
 function java_commands() 
-  
-  
 end

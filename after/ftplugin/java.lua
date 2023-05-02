@@ -13,7 +13,7 @@ local JDTLS_LOCATION = vim.fn.stdpath "data" .. "/mason/packages/jdtls"
 -- print(JDTLS_LOCATION)
 
 local HOME = os.getenv("HOME")
-
+local LOMBOK_PATH = JDTLS_LOCATION .. '/lombok.jar'
 local WORKSPACE_PATH = HOME .. "/workspace/java"
 
 
@@ -24,11 +24,8 @@ if vim.fn.has "mac" == 1 then
 end
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-
 local workspace_dir = WORKSPACE_PATH .. project_name
-
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
-
 local root_dir = require("jdtls.setup").find_root(root_markers)
 
 if root_dir == "" then
@@ -49,6 +46,7 @@ local config = {
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
     "-Dlog.protocol=true",
     "-Dlog.level=ALL",
+    "-javaagent:" .. LOMBOK_PATH,
     "-Xms1g",
     "--add-modules=ALL-SYSTEM",
     "--add-opens",
