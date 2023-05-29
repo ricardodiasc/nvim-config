@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
   use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' } -- Fuzy finder
   use { 'svrana/neosolarized.nvim', requires = { 'tjdevries/colorbuddy.nvim' } }
   use 'nvim-telescope/telescope-file-browser.nvim'
+  use 'nvim-telescope/telescope-dap.nvim'
   use 'nvim-tree/nvim-web-devicons'
   use 'L3MON4D3/LuaSnip' -- Snippets from lua
   use 'neovim/nvim-lspconfig' -- Language service
@@ -33,6 +34,7 @@ return require('packer').startup(function(use)
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's build-in LSP client
   use 'mfussenegger/nvim-dap' --Nvim debugger adapter
   use 'rcarriga/cmp-dap' -- For the java debugger
+  use { 'rcarriga/nvim-dap-ui' , requires = {"mfussenegger/nvim-dap"}}
   use 'lewis6991/gitsigns.nvim'
   use 'simrat39/rust-tools.nvim'
   use 'mfussenegger/nvim-jdtls'

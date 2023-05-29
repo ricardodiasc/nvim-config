@@ -9,7 +9,7 @@ end
 
 
 local JDTLS_LOCATION = vim.fn.stdpath "data" .. "/mason/packages/jdtls"
-
+local JAVA_DAP_LOCATION = vim.fn.stdpath "data" .. "/mason/packages/java-debug-adapter/extension/server/"
 -- print(JDTLS_LOCATION)
 
 local HOME = os.getenv("HOME")
@@ -72,19 +72,19 @@ local config = {
         updateBuildConfiguration = "interactive",
         runtimes = {
           {
-            name = "JavaJDK-11",
+            name = "JavaSE-11",
             path =  HOME .. "/.sdkman/candidates/java/11.0.19-tem",
           },
           {
-            name = "JavaJDK-17",
+            name = "JavaSE-17",
             path = HOME .. "/.sdkman/candidates/java/17.0.7-tem",
           },
           {
-            name = "JavaJDK-19",
+            name = "JavaSE-19",
             path = HOME .. "/.sdkman/candidates/java/19-tem",
           },
           {
-            name = "JavaJDK-20",
+            name = "JavaSE-20",
             path = HOME .. "/.sdkman/candidates/java/20-tem",
           }
         }
@@ -142,9 +142,18 @@ local config = {
   },
 
   init_options = {
-    bundles = {},
+    bundles = {
+      vim.fn.glob(JAVA_DAP_LOCATION .. "com.microsoft.java.debug.plugin-0.45.0.jar", 0)
+    },
   },
 }
+
+
+config['on_attach'] = function (client, bufrn) 
+  require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+
+end 
+
 
 jdtls.start_or_attach(config)
 
@@ -152,3 +161,6 @@ jdtls.start_or_attach(config)
 
 vim.bo.shiftwidth = 4
 vim.bo.tabstop = 4
+
+
+-- print(JDTLS_LOCATION)

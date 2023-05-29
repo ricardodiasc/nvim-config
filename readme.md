@@ -8,24 +8,22 @@ This is some configurations for nvim setup for development
 
 -Reference: https://medium.com/geekculture/neovim-configuration-for-beginners-b2116dbbde84
 
-
 Link on how to config nerdy fonts...
-- https://github.com/ryanoasis/nerd-fonts
 
+- https://github.com/ryanoasis/nerd-fonts
 
 ## Next steps
 
 - Telescope with fuzzy finder
 - Java development
 - Javascript (angualar) development
-- Check lazygit -  https://www.youtube.com/watch?v=hwC4JduRHyg
+- Check lazygit - https://www.youtube.com/watch?v=hwC4JduRHyg
 
 ## LSP
 
 - Install lua-language-server
 - Install typescript-language-server
 - Install @fsouza/prettierd -- Prettier code formatter daemon
-
 
 ```shell
 sudo apt install gcc g++ clang ninja-build
@@ -64,14 +62,16 @@ To install lua-language-server inside macos, just execute:
 brew install lua-language-server
 ```
 
-
-
 Install prettierd
 
 ```shell
 npm install -g @fsouza/prettierd
 ```
 
-
 Java jdtls reference docs: https://www.youtube.com/watch?v=WelEHE3RwtY&t=2s
 
+## Debug adapter (DAP)
+
+### Java
+
+To install DAPS and Langage servers, the recommended way is to use Mason

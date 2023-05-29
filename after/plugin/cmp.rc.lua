@@ -37,3 +37,10 @@ vim.cmd [[
   set completeopt=menuone,noinsert,noselect
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
+
+
+cmp.setup.filetype( { "dap-repl", "dapui_watches", "dapui_hover"}, {
+    sources = {
+    { name = "dap" },
+  },
+})
