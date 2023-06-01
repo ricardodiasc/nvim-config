@@ -103,7 +103,7 @@ end
 function run_java_test_class(debug)
   local utils = require'user/utils'
   local class_name = utils.get_current_full_class_name()
-  vim.cmd('term ' .. get_test_runner(class_name, debug))
+  -- vim.cmd('term ' .. get_test_runner(class_name, debug))
 
   vim.cmd("TermExec cmd='" .. get_test_runner(class_name, debug) .. "' ")
 end
@@ -115,6 +115,8 @@ keymap.set('n', '<Leader>jTM', function() run_java_test_method(true) end )
 keymap.set('n', '<Leader>jtc', function() run_java_test_class(false) end )
 keymap.set('n', '<Leader>jTC', function() run_java_test_class(true) end )
 
+-- Nvtree
+keymap.set('n', '<Leader>e', ':NvimTreeToggle<CR>')
 
 function java_commands() 
 end
