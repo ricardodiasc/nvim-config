@@ -13,6 +13,7 @@ vim.wo.number = true
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+vim.wo.relativenumber = true
 
 vim.opt.hlsearch = true
 vim.showcmd = true

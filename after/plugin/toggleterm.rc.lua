@@ -50,6 +50,6 @@ function _lazygit_toggle()
   lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>T", "<cmd>ToggleTerm direction=float<CR>", {noremap = true, silent = true})

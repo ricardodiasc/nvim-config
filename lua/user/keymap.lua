@@ -64,7 +64,7 @@ end
 keymap.set('n', '<Leader>da', ':lua attach_to_debug()<CR>')
 
 keymap.set('n', '<Leader>joi', ':lua require("jdtls").organize_imports()<CR>')
-keymap.set('n', '<Leader>jc', ':lua require("jdtls").compile("incremental")')
+keymap.set('n', '<Leader>jc', ':lua require("jdtls").compile("incremental")<CR>')
 -- keymap.set('n', '<Leader>jsr', function() run_spring_boot() end)
 
 keymap.set('n', '<F9>', function() run_spring_boot(false) end )
@@ -108,15 +108,21 @@ function run_java_test_class(debug)
   vim.cmd("TermExec cmd='" .. get_test_runner(class_name, debug) .. "' ")
 end
 
-
-
 keymap.set('n', '<Leader>jtm', function() run_java_test_method(false) end )
 keymap.set('n', '<Leader>jTM', function() run_java_test_method(true) end )
 keymap.set('n', '<Leader>jtc', function() run_java_test_class(false) end )
 keymap.set('n', '<Leader>jTC', function() run_java_test_class(true) end )
 
 -- Nvtree
-keymap.set('n', '<Leader>e', ':NvimTreeToggle<CR>')
+keymap.set('n', '<Leader>e', '<cmd>NvimTreeFindFileToggle<CR>')
+
+
+-- Git 
+keymap.set('n', '<Leader>gb', '<cmd>Gitsigns toggle_current_line_blame<CR>')
+
+
+-- Trouble
+keymap.set('n', '<Leader>xt', '<cmd>TroubleToggle<CR>')
 
 function java_commands() 
 end

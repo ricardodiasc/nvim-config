@@ -40,4 +40,6 @@ return require('packer').startup(function(use)
   use 'mfussenegger/nvim-jdtls'
   use 'akinsho/toggleterm.nvim'
   use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' }}
+  use { 'folke/trouble.nvim', requires = {'nvim-tree/nvim-web-devicons'}}
+  use 'folke/lsp-colors.nvim'
 end)
