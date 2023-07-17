@@ -1,15 +1,12 @@
 local keymap = vim.keymap
 
-
 -- Check what it does....
 keymap.set('n', 'x', '_x')
-
 
 -- Increment / Decrement
 
 keymap.set('n', '+', '<C-a>')
 keymap.set('n', '-', '<C-x>')
-
 
 -- Delete a word backwords - not working?!?
 -- keymap.set('n', 'dw', 'vb"_d')
@@ -20,8 +17,6 @@ keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
 
 
 -- Java 
-
-
 function get_spring_boot_runner(profile, debug)
   local debug_param = ""
 
@@ -41,9 +36,7 @@ end
 function run_spring_boot(debug) 
   -- vim.cmd('term ' .. get_spring_boot_runner('local', debug))
   vim.cmd("TermExec cmd='" .. get_spring_boot_runner('local', debug) .. "' ")
-  
   -- vim.api.nvim_set_keymap("n", "<cmd>TermExec cmd='" .. get_spring_boot_runner() .. ";exit' <CR>", {noremap = true, silent = true})
-  
 end
 
 function attach_to_debug() 
@@ -70,7 +63,8 @@ keymap.set('n', '<Leader>jc', ':lua require("jdtls").compile("incremental")<CR>'
 keymap.set('n', '<F9>', function() run_spring_boot(false) end )
 keymap.set('n', '<F10>', function() run_spring_boot(true) end )
 
-
+-- Dap UI Toggle not working yet
+-- keymap.set('n', '<Leader>dt', ':DapUiToggle<CR>')
 keymap.set('n', '<F5>', ':lua require"dap".continue()<CR>')
 keymap.set('n', '<F6>', ':lua require"dap".step_over()<CR>')
 keymap.set('n', '<F7>', ':lua require"dap".step_into()<CR>')
@@ -123,6 +117,22 @@ keymap.set('n', '<Leader>gb', '<cmd>Gitsigns toggle_current_line_blame<CR>')
 
 -- Trouble
 keymap.set('n', '<Leader>xt', '<cmd>TroubleToggle<CR>')
+keymap.set('n', '<Leader>xd', '<cmd>TroubleToggle document_diagnostics<CR>')
+keymap.set('n', '<Leader>xq', '<cmd>TroubleToggle quickfix<CR>')
+keymap.set('n', 'gR', '<cmd>TroubleToggle lsp_references<CR>')
 
+function show_dap_centered_scopes()
+  local widgets = require('dap.ui.widgets')
+  widgets.centered_float(widgets.scopes)
+end
+
+function show_dap_repl()
+  local repl = require('dap').repl
+  repl.open()
+end
+
+keymap.set('n', 'gs',':lua show_dap_centered_scopes()<CR>')
+
+keymap.set('n', 'gR', ':lua show_dap_repl()<CR>')
 function java_commands() 
 end

@@ -102,6 +102,7 @@ local config = {
         includeDecompiledSources = true,
       },
       format = {
+        enabled = true,
         settings = {
           url = "/home/ricardo/.local/share/eclipse/eclipse-java-google-style.xml",
           profile = "GoogleStyle",
@@ -143,7 +144,7 @@ local config = {
 
   init_options = {
     bundles = {
-      vim.fn.glob(JAVA_DAP_LOCATION .. "com.microsoft.java.debug.plugin-0.45.0.jar", 0)
+      vim.fn.glob(JAVA_DAP_LOCATION .. "com.microsoft.java.debug.plugin-0.47.0.jar", 0)
     },
   },
 }
