@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
   use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' } -- Fuzy finder
   use { 'svrana/neosolarized.nvim', requires = { 'tjdevries/colorbuddy.nvim' } }
   use 'nvim-telescope/telescope-file-browser.nvim'
+  use 'numToStr/Comment.nvim'
   use 'nvim-telescope/telescope-dap.nvim'
   use 'nvim-tree/nvim-web-devicons'
   use 'L3MON4D3/LuaSnip' -- Snippets from lua
@@ -42,4 +43,17 @@ return require('packer').startup(function(use)
   use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' }}
   use { 'folke/trouble.nvim', requires = {'nvim-tree/nvim-web-devicons'}}
   use 'folke/lsp-colors.nvim'
+  use {
+    'j-hui/fidget.nvim',
+    tag = 'legacy',
+    config = function()
+     require('fidget').setup {
+        -- options
+      }
+    end,
+  }
+  use {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after='nvim-treesitter'
+  }
 end)

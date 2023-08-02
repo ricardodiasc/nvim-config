@@ -22,7 +22,11 @@ ts.setup({
     'scss',
     'typescript',
     'java',
-    'rust'
+    'rust',
+    'javascript',
+    'c',
+    'cpp',
+    'help'
   },
   auto_tag = {
     enable = true,
