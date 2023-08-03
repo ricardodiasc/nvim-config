@@ -83,6 +83,9 @@ nvim_lsp.lua_ls.setup {
   end,
   settings = {
     Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
       diagnostics = {
         -- Get the language server to recognize the 'vim' as global
         globals = { 'vim' }
@@ -92,6 +95,9 @@ nvim_lsp.lua_ls.setup {
         -- make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
         checkThirdParty = false
+      },
+      telemetry = {
+        enable = false,
       }
     }
   }

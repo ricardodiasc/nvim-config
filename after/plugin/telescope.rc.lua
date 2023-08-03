@@ -84,3 +84,11 @@ end)
 vim.keymap.set('n', ';e', function()
   builtin.diagnostics()
 end)
+
+vim.keymap.set('n', '<leader><space>', function()
+  builtin.buffers()
+end)
+
+vim.keymap.set('n', '<leader>ls', function()
+  builtin.lsp_document_symbols()
+end)
