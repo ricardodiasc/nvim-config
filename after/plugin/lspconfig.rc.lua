@@ -31,10 +31,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 end
 
-
-
-
-
 protocol.CompletionItemKind = {
   '', -- Text
   '', -- Method
@@ -121,3 +117,11 @@ nvim_lsp.rust_analyzer.setup({
     }
   }
 })
+
+
+nvim_lsp.angularls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
+})
+
+

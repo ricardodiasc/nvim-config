@@ -17,7 +17,7 @@ keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
 
 
 -- Java 
-function get_spring_boot_runner(profile, debug)
+local function get_spring_boot_runner(profile, debug)
   local debug_param = ""
 
   if(debug) then
@@ -136,5 +136,7 @@ end
 keymap.set('n', 'gs',':lua show_dap_centered_scopes()<CR>')
 
 keymap.set('n', 'gR', ':lua show_dap_repl()<CR>')
+
+
 function java_commands() 
 end
