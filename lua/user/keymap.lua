@@ -17,7 +17,7 @@ keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
 
 
 -- Java 
-local function get_spring_boot_runner(profile, debug)
+function get_spring_boot_runner(profile, debug)
   local debug_param = ""
 
   if(debug) then
@@ -33,7 +33,7 @@ local function get_spring_boot_runner(profile, debug)
 end
 
 
-function run_spring_boot(debug) 
+function run_spring_boot(debug)
   -- vim.cmd('term ' .. get_spring_boot_runner('local', debug))
   vim.cmd("TermExec cmd='" .. get_spring_boot_runner('local', debug) .. "' ")
   -- vim.api.nvim_set_keymap("n", "<cmd>TermExec cmd='" .. get_spring_boot_runner() .. ";exit' <CR>", {noremap = true, silent = true})
@@ -58,7 +58,7 @@ keymap.set('n', '<Leader>da', ':lua attach_to_debug()<CR>')
 
 keymap.set('n', '<Leader>joi', ':lua require("jdtls").organize_imports()<CR>')
 keymap.set('n', '<Leader>jc', ':lua require("jdtls").compile("incremental")<CR>')
--- keymap.set('n', '<Leader>jsr', function() run_spring_boot() end)
+keymap.set('n', '<Leader>jsr', function() run_spring_boot() end)
 
 keymap.set('n', '<F9>', function() run_spring_boot(false) end )
 keymap.set('n', '<F10>', function() run_spring_boot(true) end )
@@ -66,7 +66,7 @@ keymap.set('n', '<F10>', function() run_spring_boot(true) end )
 
 
 -- Dap UI Toggle not working yet
--- keymap.set('n', '<Leader>dt', ':DapUiToggle<CR>')
+keymap.set('n', '<Leader>dt', ':DapUiToggle<CR>')
 keymap.set('n', '<F5>', ':lua require"dap".continue()<CR>')
 keymap.set('n', '<F6>', ':lua require"dap".step_over()<CR>')
 keymap.set('n', '<F7>', ':lua require"dap".step_into()<CR>')
@@ -83,7 +83,7 @@ function get_test_runner(test_name, debug)
   if debug then
     return './gradlew test --debug-jvm --tests "' .. test_name .. '"'
   end
-  
+
   return './gradlew test --tests "' .. test_name .. '"'
 end
 
@@ -92,11 +92,11 @@ function run_java_test_method(debug)
   local method_name = utils.get_current_full_method_name()
   -- print(get_test_runner(method_name, false))
   -- vim.cmd('term ' .. get_test_runner(method_name, debug) )
-  
+
   vim.cmd("TermExec cmd='" .. get_test_runner(method_name, debug) .. "' ")
 end
 
-function run_java_test_class(debug)
+local function run_java_test_class(debug)
   local utils = require'user/utils'
   local class_name = utils.get_current_full_class_name()
   -- vim.cmd('term ' .. get_test_runner(class_name, debug))
@@ -134,9 +134,8 @@ function show_dap_repl()
 end
 
 keymap.set('n', 'gs',':lua show_dap_centered_scopes()<CR>')
-
 keymap.set('n', 'gR', ':lua show_dap_repl()<CR>')
 
 
-function java_commands() 
+local function java_commands()
 end

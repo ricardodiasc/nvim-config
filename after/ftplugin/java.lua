@@ -10,7 +10,6 @@ end
 
 local JDTLS_LOCATION = vim.fn.stdpath "data" .. "/mason/packages/jdtls"
 local JAVA_DAP_LOCATION = vim.fn.stdpath "data" .. "/mason/packages/java-debug-adapter/extension/server/"
--- print(JDTLS_LOCATION)
 
 local HOME = os.getenv("HOME")
 local LOMBOK_PATH = JDTLS_LOCATION .. '/lombok.jar'
@@ -144,7 +143,7 @@ local config = {
 
   init_options = {
     bundles = {
-      vim.fn.glob(JAVA_DAP_LOCATION .. "com.microsoft.java.debug.plugin-0.47.0.jar", 0)
+      vim.fn.glob(JAVA_DAP_LOCATION .. "com.microsoft.java.debug.plugin-*.jar", 0)
     },
   },
 }
@@ -153,7 +152,7 @@ local config = {
 config['on_attach'] = function (client, bufrn) 
   require('jdtls').setup_dap({ hotcodereplace = 'auto' })
 
-end 
+end
 
 
 jdtls.start_or_attach(config)
@@ -163,5 +162,3 @@ jdtls.start_or_attach(config)
 vim.bo.shiftwidth = 4
 vim.bo.tabstop = 4
 
-
--- print(JDTLS_LOCATION)

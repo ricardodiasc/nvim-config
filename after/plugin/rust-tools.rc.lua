@@ -13,7 +13,7 @@ if (not status) then
 end
 
 
-local function on_attach(_, bufnr)
+function on_attach(_, bufnr)
   vim.keymap.set('n', '<Leader>k', rust_tools.hover_actions.hover_actions, {buffer = bufnr} )
   vim.keymap.set('n', '<Leader>a', rust_tools.code_action_group.code_action_group, {buffer = bufnr})
 end

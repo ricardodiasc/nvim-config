@@ -1,14 +1,29 @@
 local status, nvim_lsp = pcall(require, 'lspconfig')
+local statusmason, mason = pcall(require, 'mason')
+local statusmasonconfig, masonconfig = pcall(require, 'mason-lspconfig')
+
 
 if (not status) then
   print("lspConfig not installed")
   return
 end
 
+if (not statusmason) then
+  print("mason not installed")
+  return
+end
+
+if (not statusmasonconfig) then
+  print('mason-lspconfig not installed')
+  return
+end
+
+-- mason.setup()
+-- masonconfig.setup()
+--
+
 
 local protocol = require('vim.lsp.protocol')
-
-
 local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 
 local enable_format_on_save = function(_, bufnr) 
@@ -29,6 +44,7 @@ local on_attach = function(client, bufnr)
 
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>')
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+  buf_set_keymap('n', '<Leader>ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
 end
 
 protocol.CompletionItemKind = {
@@ -61,8 +77,6 @@ protocol.CompletionItemKind = {
 
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
@@ -118,10 +132,10 @@ nvim_lsp.rust_analyzer.setup({
   }
 })
 
-
 nvim_lsp.angularls.setup({
   on_attach = on_attach,
-  capabilities = capabilities
-})
+  capabilities = capabilities,
+  -- cmd = '/home/ricardo/.local/share/nvim/mason/bin/ngserver'
 
+})
 

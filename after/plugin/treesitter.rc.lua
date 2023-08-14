@@ -26,7 +26,7 @@ ts.setup({
     'javascript',
     'c',
     'cpp',
-    'help'
+    'graphql'
   },
   auto_tag = {
     enable = true,
